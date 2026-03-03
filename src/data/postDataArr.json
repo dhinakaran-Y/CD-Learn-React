@@ -4,20 +4,23 @@
         "date": "May-3, 2026",
         "title":"Why Are Designers Leaving Figma? The Great Transition.",
         "desc": "Recently a collective trend has brewed up. Figma is losing its territory and monopolistic foothold on the creative industry. A majority of users that put Figma in the limelight are UI designers and developers who want to create pretty screens and strong products. While Figma is still good for all that, what it’s great at, is losing value.",
-        "categories": ["UIUX", "Designer" , "Fingma"]
+        "categories": ["UIUX", "Designer" , "Fingma"],
+        "slug":"why-are-designers-leaving-figma"
     },
     {
       "id": 2,
       "date": "sept-5, 2025",
       "title": "Forget ChatGPT & Gemini — Here Are New AI Tools That Will Blow Your Mind.",
       "desc": "After that, we saw everyone shift to AI. Developers and big companies began building AI tools, and even individuals started learning about artificial intelligence.Thanks to that, we have tons of popular AI tools like RunwayML, Lovable, Claude, Gemini, Perplexity, Cursor, Stitch, NotebookLM, Leonardo AI, Framer AI, and the list goes on.",
-      "categories": ["UIUX", "Designer", "Fingma"]
+      "categories": ["UIUX", "Designer", "Fingma"],
+      "slug":"forget-chatGPT-gemini-blow-your-mind."
     },
     {
       "id": 3,
       "date": "nov-13, 2023",
       "title": "10 Claude Code Commands That Cut My Dev Time 60%: A Practical Guide.",
       "desc": "Last month, I watched our team burn 93 hours debugging a feature that should’ve taken 40. Three devs, endless context switching, constant “where’s that file?” questions — and a sprint that shipped two weeks late.",
-      "categories": ["UIUX", "Designer", "Fingma"]
+      "categories": ["UIUX", "Designer", "Fingma"],
+      "slug":"10-claude-code"
     }
 ]

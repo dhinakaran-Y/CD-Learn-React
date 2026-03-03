@@ -16,6 +16,15 @@ const NewBlog = () => {
     const categoryArr = categories.value.split(",");
     const trimmedCategoryArr = categoryArr.map((category) => category.trim());
 
+    // title
+     const slugArr = title.value.split(" ");
+     const trimmedSlugArr = slugArr.filter((slug) => {
+       if (slug !== " " && slug !== " ") {
+         return slug.trim().toLowerCase();
+       }
+     });
+     const slug = trimmedSlugArr.join("-");
+
     // get date values
     const currentDate = new Date();
     // get month in string
@@ -28,13 +37,14 @@ const NewBlog = () => {
     const date = currentDate.getDate();
     // Combine them
     const formattedDate = `${date}-${monthString}, ${year}`;
-
+    
     const newPost = {
       id: postArr.length + 1,
       title: title.value,
       desc: desc.value,
       categories: trimmedCategoryArr,
       date: formattedDate,
+      slug
     };
 
     setPostArr([newPost, ...postArr]);

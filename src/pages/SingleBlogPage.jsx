@@ -4,9 +4,9 @@ import { PostContext } from "../components/PostContext";
 import CategoryBatch from "../components/CategoryBatch";
 
 const SingleBlogPage = () => {
-  const { id } = useParams();
+  const { slug} = useParams();
   const { postArr } = useContext(PostContext);
-  const currentPost = postArr.find((post) => post.id == id);
+  const currentPost = postArr.find((post) => post.slug == slug);
 
   return (
     <div className="w-full h-full">
