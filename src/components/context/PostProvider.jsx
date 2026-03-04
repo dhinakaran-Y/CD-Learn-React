@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import postDataArr from "../../data/postDataArr.json";
-import { PostContext, ThemeContext } from "./PostContext";
+import { PostContext, ThemeContext , PasswordVal } from "./PostContext";
 
 export const PostProvider = ({ children }) => {
   const LOCAL_KEY = "Posts";

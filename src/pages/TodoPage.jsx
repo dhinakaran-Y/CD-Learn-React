@@ -5,7 +5,7 @@ import useFetchData from "../components/UseFetch";
 import TogglerBtn from "../components/TogglerBtn";
 
 const TodoPage = () => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   const [data, isLoading] = useFetchData(
     `https://mimic-server-api.vercel.app/todos?_page=${page}`,
@@ -18,7 +18,7 @@ const TodoPage = () => {
       });
     } else {
       setPage((pre) => {
-        return pre > 0 ? pre - 1 : pre;
+        return pre > 1 ? pre - 1 : pre;
       });
     }
   }
@@ -64,7 +64,7 @@ const TodoPage = () => {
             type="button">
             &lt;
           </button>
-          <p>page : {page + 1}</p>
+          <p>page : {page}</p>
           <button
             onClick={() => pageNavigate("+")}
             className="w-10 h-10 rounded-full bg-green-400/50 cursor-pointer hover:bg-green-500/50 active:translate-x-2 transition-all duration-300"
