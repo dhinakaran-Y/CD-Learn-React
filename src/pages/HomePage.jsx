@@ -1,4 +1,5 @@
 import TheHeader from "../components/TheHeader";
+import { PostContext } from "../components/context/PostContext";
 
 const HomePage = () => {
   return (

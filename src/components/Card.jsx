@@ -7,9 +7,9 @@ const Card = ({...post}) => {
       <div className="xl:max-w-7xl min-h-60 grid grid-cols-12 mx-auto py-5 content-center hover:scale-105 transition-all duration-300">
         {/* left */}
         <div className="col-span-9 space-y-2">
-          <p className="text-white/50 text-sm">{post.date}</p>
+          <p className="dark:text-white/50 text-sm text-black/50">{post.date}</p>
           <h2 className="text-xl font-semibold capitalize">{post.title}</h2>
-          <p className="line-clamp-2 text-white/80">{post.desc}</p>
+          <p className="line-clamp-2 dark:text-white/80 text-black/70">{post.desc}</p>
           {/* category */}
           <div className="my-3 flex space-x-2">
             {post.categories.map((category, index) => (

@@ -1,11 +1,13 @@
+import { useContext } from "react";
 import { NavLink } from "react-router";
+import { PostContext } from "./context/PostContext";
+import TogglerBtn from "./TogglerBtn";
 
 const TheHeader = () => {
+
   return (
-    <header className="bg-zinc-900 border-b border-gray-800 py-2 ">
-      <title>
-       Learn React
-      </title>
+    <header className="dark:bg-zinc-900 bg-zinc-200 border-b border-gray-800 py-2 ">
+      <title>Learn React</title>
       <nav className="flex justify-between items-center container xl:max-w-7xl mx-auto">
         {/* left */}
         <div className="">
@@ -34,13 +36,18 @@ const TheHeader = () => {
           </div>
         </div>
         {/* right */}
-        <div className="space-x-4">
+        <div className="space-x-4 flex">
           <NavLink to={"/"} className={"font-semibold"}>
             Home
           </NavLink>
-          <NavLink to={"/blogs"} className={"font-semibold"}>
+          <NavLink to={"/sign-in"} className={"font-semibold"}>
             Blogs
           </NavLink>
+          <NavLink to={"/quotes"} className={"font-semibold"}>
+            Quotes
+          </NavLink>
+          {/* theme */}
+          <TogglerBtn />
         </div>
       </nav>
     </header>

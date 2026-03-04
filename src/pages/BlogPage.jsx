@@ -1,16 +1,23 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Card from "../components/Card";
-import {useContext } from "react";
+import { useContext, useEffect } from "react";
 import NewBlog from "./NewBlog";
-import { PostContext } from "../components/PostContext";
+import { PostContext } from "../components/context/PostContext";
+import TogglerBth from "../components/TogglerBtn";
 
 const BlogPage = () => {
-  
-  const {postArr} = useContext(PostContext)
+  const { postArr , passwordVal } = useContext(PostContext);
+  const navigate = useNavigate()
 
+  useEffect(() => {
+      if (passwordVal === null) {
+        alert("You are not a valid user...")
+        navigate("/");
+      }      
+  },[passwordVal,navigate])
   return (
     <>
-      <header className="bg-zinc-900 border-b border-gray-800 py-2">
+      <header className="dark:bg-zinc-900 bg-zinc-100 border-b border-gray-800 py-2">
         <title>Writers</title>
         <nav className="flex justify-between items-center container xl:max-w-7xl mx-auto">
           {/* left */}
@@ -68,7 +75,7 @@ const BlogPage = () => {
             </div>
           </div>
           {/* right */}
-          <div className="space-x-4">
+          <div className="space-x-4 flex items-center">
             <Link
               to={"/new-blog"}
               className={
@@ -86,6 +93,7 @@ const BlogPage = () => {
               </svg>
               <p>Write Post</p>
             </Link>
+            <TogglerBth />
           </div>
         </nav>
       </header>

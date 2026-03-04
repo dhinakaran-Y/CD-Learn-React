@@ -2,7 +2,8 @@ import { NavLink } from "react-router";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 import InputDiv from "../components/InputDiv";
-import { PostContext } from "../components/PostContext";
+import { PostContext } from "../components/context/PostContext";
+import TogglerBtn from "../components/TogglerBtn";
 
 const NewBlog = () => {
   const LOCAL_KEY = "Posts";
@@ -54,7 +55,7 @@ const NewBlog = () => {
   }
   return (
     <>
-      <header className="bg-zinc-900 border-b border-gray-800 py-2">
+      <header className="dark:bg-zinc-900 bg-zinc-200 border-b border-gray-800 py-2">
         <title>New Blog</title>
         <nav className="flex justify-between items-center container xl:max-w-7xl mx-auto">
           {/* left */}
@@ -114,7 +115,7 @@ const NewBlog = () => {
             </div>
           </div>
           {/* right */}
-          <div className="space-x-4">
+          <div className="space-x-4 flex items-center">
             <NavLink
               to={"/blogs"}
               className={
@@ -122,13 +123,14 @@ const NewBlog = () => {
               }>
               back
             </NavLink>
+            <TogglerBtn />
           </div>
         </nav>
       </header>
       <div className="w-full">
         <form
           action=""
-          className="w-xl mt-20 sm:2xl md:3xl xl:w-4xl mx-auto p-8 border space-y-5 border-white/10 rounded-2xl"
+          className="w-xl mt-20 sm:2xl md:3xl xl:w-4xl mx-auto p-8 border space-y-5 dark:border-white/10 border-black/10 rounded-2xl"
           onSubmit={(e) => addPost(e)}>
           <div className="mb-5">
             <h2
@@ -141,7 +143,7 @@ const NewBlog = () => {
               id={"title"}
               name={"title"}
               type={"text"}
-              className="px-3 py-1 focus:outline-none border-b border-white/10"
+              className="px-3 py-1 focus:outline-none border-b dark:border-white/10 border-black/10"
               placeholder={"Title"}
               required
             />
@@ -151,7 +153,7 @@ const NewBlog = () => {
             <textarea
               id="desc"
               name="desc"
-              className="px-3 py-1 focus:outline-none border-b border-white/10"
+              className={`px-3 py-1 focus:outline-none border-b dark:border-white/10 border-black/10`}
               placeholder="Type your Article..."
               rows={6}
               required
@@ -164,7 +166,7 @@ const NewBlog = () => {
               name={"categories"}
               type={"text"}
               className="px-3 py-1 focus:outline-none"
-              placeholder={"categories"}
+              placeholder={"categories- separate the categories using ' , '"}
               required
             />
           </div>

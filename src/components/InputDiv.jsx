@@ -1,4 +1,4 @@
-const InputDiv = ({ label, inputId, inputType = "text", movieValue }) => {
+const InputDiv = ({ label, inputId, inputType = "text" }) => {
   return (
     <div className="flex flex-col space-y-1">
       <label htmlFor={inputId}>{label}</label>
@@ -6,8 +6,7 @@ const InputDiv = ({ label, inputId, inputType = "text", movieValue }) => {
         id={inputId}
         name={inputId}
         type={inputType}
-        defaultValue={movieValue ?? movieValue}
-        className="px-3 py-1 bg-gray-200 rounded-lg focus:outline-2 outline-orange-300"
+        className="px-3 py-1 bg-gray-200 dark:bg-transparent dark:border dark:border-white/10 rounded-lg focus:outline-2 outline-orange-300"
         placeholder={label}
         required
       />
