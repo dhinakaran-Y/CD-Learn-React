@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router";
 import Card from "../components/Card";
 import { useContext, useEffect } from "react";
-import NewBlog from "./NewBlog";
-import { PostContext } from "../components/context/PostContext";
-import TogglerBth from "../components/TogglerBtn";
+import { PostContext } from "../../components/context/PostContext";
+import TogglerBth from "../../components/TogglerBtn";
 
 const BlogPage = () => {
   const { postArr , passwordVal } = useContext(PostContext);

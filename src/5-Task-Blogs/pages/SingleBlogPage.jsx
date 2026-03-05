@@ -1,8 +1,8 @@
 import { useParams, Link } from "react-router";
 import { useContext } from "react";
-import { PostContext } from "../components/context/PostContext";
+import { PostContext } from "../../components/context/PostContext";
 import CategoryBatch from "../components/CategoryBatch";
-import TogglerBtn from "../components/TogglerBtn";
+import TogglerBtn from "../../components/TogglerBtn";
 
 const SingleBlogPage = () => {
   const { slug} = useParams();

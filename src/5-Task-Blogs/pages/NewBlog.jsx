@@ -1,9 +1,8 @@
 import { NavLink } from "react-router";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
-import InputDiv from "../components/InputDiv";
-import { PostContext } from "../components/context/PostContext";
-import TogglerBtn from "../components/TogglerBtn";
+import { PostContext } from "../../components/context/PostContext";
+import TogglerBtn from "../../components/TogglerBtn";
 
 const NewBlog = () => {
   const LOCAL_KEY = "Posts";

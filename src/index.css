@@ -13,3 +13,18 @@ body{
 nav a.active{
     @apply text-react-brand underline
 }
+
+/* Hide Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide IE, Edge */
+}
+
+dialog::backdrop{
+  @apply bg-black/50;
+  backdrop-filter: blur(4px);
+}

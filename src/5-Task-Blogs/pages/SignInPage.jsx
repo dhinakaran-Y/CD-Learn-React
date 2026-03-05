@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
-import InputDiv from "../components/InputDiv";
+import InputDiv from "../../components/InputDiv";
 import { useContext } from "react";
-import { PostContext } from "../components/context/PostContext";
+import { PostContext } from "../../components/context/PostContext";
 
 const SignInPage = () => {
 

@@ -1,8 +1,8 @@
 import TaskCard from "../components/TaskCard";
 import { useState } from "react";
 import { Link } from "react-router";
-import useFetchData from "../components/UseFetch";
-import TogglerBtn from "../components/TogglerBtn";
+import useFetchData from "../../components/UseFetch";
+import TogglerBtn from "../../components/TogglerBtn";
 
 const TodoPage = () => {
   const [page, setPage] = useState(1);
