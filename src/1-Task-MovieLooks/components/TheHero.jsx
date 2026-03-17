@@ -5,7 +5,7 @@ const movieDataArr = [
   {
     title: "The Shawshank Redemption",
     desc: "A banker convicted of uxoricide forms a friendship over a quarter century with a hardened convict, while maintaining his innocence and trying to remain hopeful through simple compassion.",
-    img1: "https://lh6.googleusercontent.com/proxy/vfjTj1mwQXLWVCArfLdMJrE5EFhv455JuDg6awr8DztwFQm5CFZg6zUUBQhYFomHlZsn_1sVfWbq3aMQqsAlyUByW2arUav1jHZKxjS7Bz9qv5ZoZGg",
+    img1: "https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_.jpg",
     img2: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTohSYpYcBgUhj3JIpS-KKqURbMdk9729XbKA&s",
     genre: ["drama", "prison-drama", "crime-drama"],
   },

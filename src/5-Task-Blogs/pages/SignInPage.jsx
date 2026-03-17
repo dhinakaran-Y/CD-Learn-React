@@ -23,6 +23,7 @@ const SignInPage = () => {
     }
   return (
     <div className="w-screen flex flex-col h-screen">
+      <p className="dark:text-yellow-50/80 font-light border-0.5 border border-yellow-300/50 p-2 rounded-lg top-20 absolute left-5/12">Username: dhinakaran , password : 1234</p>
       <form className="m-auto p-10 w-5xl border dark:border-white/10 rounded-2xl shadow space-y-4" onSubmit={handleSubmit}>
         <h2 className="text-2xl font-semibold text-center text-yellow-400">
           Sign In

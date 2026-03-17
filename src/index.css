@@ -7,7 +7,7 @@
 }
 
 body{
-    @apply dark:bg-zinc-950 dark:text-white 
+    @apply dark:bg-[#1b1b1d] dark:text-white 
 }
 
 nav a.active{

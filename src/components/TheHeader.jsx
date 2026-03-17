@@ -1,19 +1,13 @@
-import { useContext } from "react";
-import { NavLink } from "react-router";
-import { PostContext } from "./context/PostContext";
 import TogglerBtn from "./TogglerBtn";
 
-const TheHeader = () => {
+const TheHeader = ({title = "Learn React"}) => {
 
   return (
-    <header className="dark:bg-zinc-900 bg-zinc-200 border-b border-gray-800 py-2 ">
-      <title>Learn React</title>
-      <nav className="flex justify-between items-center container xl:max-w-7xl mx-auto">
-        {/* left */}
-        <div className="">
-          {/* logo */}
-          <div className="flex items-center space-x-2">
-            <svg
+    <header className="sticky top-0 z-50 bg-white dark:bg-[#1a1c22] border-b border-slate-200 dark:border-gray-800 shadow-sm">
+      <nav className="flex justify-between items-center container mx-auto px-4 md:px-8 xl:px-16 py-4">
+        {/* Logo*/}
+        <div className="flex items-center space-x-3">
+          <svg
               xmlns="http://www.w3.org/2000/svg"
               width="2em"
               height="2em"
@@ -32,21 +26,13 @@ const TheHeader = () => {
                 d="M21.677 28.456c-1.355 0-3.076-.82-4.868-2.361a28.8 28.8 0 0 1-5.747-7.237a28.7 28.7 0 0 1-3.374-8.471a11.4 11.4 0 0 1-.158-4A3.4 3.4 0 0 1 8.964 3.9c1.487-.861 4.01.024 6.585 2.31a28.8 28.8 0 0 1 5.39 6.934a28.4 28.4 0 0 1 3.41 8.287a11.3 11.3 0 0 1 .137 4.146a3.54 3.54 0 0 1-1.494 2.555a2.6 2.6 0 0 1-1.315.324m-9.58-10.2a28 28 0 0 0 5.492 6.929c2.249 1.935 4.033 2.351 4.8 1.9c.8-.465 1.39-2.363.782-5.434A27.2 27.2 0 0 0 19.9 13.74a27.6 27.6 0 0 0-5.145-6.64c-2.424-2.152-4.39-2.633-5.191-2.169a2.33 2.33 0 0 0-.855 1.662a10.2 10.2 0 0 0 .153 3.565a27.5 27.5 0 0 0 3.236 8.1Z"
               />
             </svg>
-            <p className="text-2xl text-react-brand font-bold">Learn React</p>
-          </div>
+          <p className="text-2xl font-extrabold text-slate-950 dark:text-react-brand tracking-tight">
+            {title}
+          </p>
         </div>
-        {/* right */}
-        <div className="space-x-4 flex">
-          <NavLink to={"/"} className={"font-semibold"}>
-            Home
-          </NavLink>
-          <NavLink to={"/sign-in"} className={"font-semibold"}>
-            Blogs
-          </NavLink>
-          <NavLink to={"/quotes"} className={"font-semibold"}>
-            Quotes
-          </NavLink>
-          {/* theme */}
+        
+        {/* right*/}
+        <div className="flex items-center">
           <TogglerBtn />
         </div>
       </nav>

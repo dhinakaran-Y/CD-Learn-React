@@ -10,6 +10,7 @@ import NewBlog from "./5-Task-Blogs/pages/NewBlog";
 import SingleBlogPage from "./5-Task-Blogs/pages/SingleBlogPage";
 import SignInPage from "./5-Task-Blogs/pages/SignInPage";
 import TodoPage from "./6-Task-Quotes/pages/TodoPage";
+import ErrorPage from "./pages/ErrorPage";
 
 const App = () => {
   return (
@@ -18,20 +19,22 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           {/* movie look (movie card component) */}
-          <Route path="/movie-looks" element={<MovieLookHomePage/>}/>
+          <Route path="/movie-looks" element={<MovieLookHomePage />} />
           {/* 360 Articles */}
-          <Route path="/360-articles" element={<ArticlesHomePage/>}/>
+          <Route path="/360-articles" element={<ArticlesHomePage />} />
           {/* components */}
-          <Route path="/components" element={<ComponentsHomePage/>}/>
+          <Route path="/components" element={<ComponentsHomePage />} />
           {/* movie buffer */}
-          <Route path="/movies-buffer" element={<MovieBufferApp/>}/>
+          <Route path="/movies-buffer" element={<MovieBufferApp />} />
           {/* blog page */}
-          <Route path="/sign-in" element={<SignInPage/>}></Route>
-          <Route path="/blogs" element={<BlogPage/>}/>
-          <Route path="/blogs/:slug" element={<SingleBlogPage/>}></Route>
+          <Route path="/sign-in" element={<SignInPage />}></Route>
+          <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/blogs/:slug" element={<SingleBlogPage />}></Route>
           <Route path="/new-blog" element={<NewBlog />} />
           {/* quotes */}
-          <Route path="/tasks" element={<TodoPage/>}/>
+          <Route path="/tasks" element={<TodoPage />} />
+          {/* error Element */}
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </PostProvider>
