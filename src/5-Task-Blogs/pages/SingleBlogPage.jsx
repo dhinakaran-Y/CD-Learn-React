@@ -17,7 +17,7 @@ const SingleBlogPage = () => {
           {/* right */}
           <div className="space-x-4 flex items-center">
             <Link
-              to={"/"}
+              to={"/blogs"}
               className={
                 "font-semibold dark:text-white hover:underline cursor-pointer transition-all duration-300 flex space-x-1 items-center px-3 py-2"
               }>
