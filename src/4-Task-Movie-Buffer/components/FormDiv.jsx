@@ -6,7 +6,6 @@ const FormDiv = ({ setFormShow, formShow, refreshData }) => {
 
   useEffect(() => {
     (function showModal() {
-
       if (formShow.deleteId === null) {
         document.getElementById("dialogEl").showModal();
 
@@ -15,13 +14,9 @@ const FormDiv = ({ setFormShow, formShow, refreshData }) => {
             const response = await fetch(
               `https://mimic-server-api.vercel.app/movies/${movieId}`,
             );
-
             if (!response.ok) throw new Error("Failed to get movie");
-
             const data = await response.json();
-            // console.log(data);
             setEditMovie(data);
-            // const { original_title, vote_average, poster_path, overview } = data;
           } catch (error) {
             console.error("API fetch error :", error);
           }
@@ -37,7 +32,7 @@ const FormDiv = ({ setFormShow, formShow, refreshData }) => {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const { movieTitle, movieRating, moviePopularity, movieOverview } =
+    const { movieTitle, movieRating, moviePopularity, movieOverview, moviePoster } =
       e.target;
 
     const newMovieData = {
@@ -45,6 +40,8 @@ const FormDiv = ({ setFormShow, formShow, refreshData }) => {
       rating: Number(movieRating.value),
       popularity: Number(moviePopularity.value),
       overview: movieOverview.value,
+      poster: moviePoster.value.trim() ||
+        "https://www.designer-daily.com/wp-content/uploads/2012/12/lord-war-creative-movie-posters.jpg",
     };
 
     async function postNewMovie() {
@@ -61,8 +58,7 @@ const FormDiv = ({ setFormShow, formShow, refreshData }) => {
               original_title: newMovieData.title,
               overview: newMovieData.overview,
               popularity: newMovieData.popularity,
-              poster_path:
-                "https://www.designer-daily.com/wp-content/uploads/2012/12/lord-war-creative-movie-posters.jpg",
+              poster_path: newMovieData.poster, 
               release_date: "2025-01-24",
               title: newMovieData.title,
               video: false,
@@ -71,11 +67,7 @@ const FormDiv = ({ setFormShow, formShow, refreshData }) => {
             }),
           },
         );
-
         if (!response.ok) throw new Error("Failed to post movie");
-
-        // const data = await response.json();
-        // console.log("ok" ,data);
         alert("Movie added successfully!");
       } catch (error) {
         console.error("Error in posting movie:", error);
@@ -91,51 +83,32 @@ const FormDiv = ({ setFormShow, formShow, refreshData }) => {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              // adult: false,
-              // genre_ids: [28, 80, 53],
-              // original_language: "ta",
               original_title: newMovieData.title,
               overview: newMovieData.overview,
               popularity: newMovieData.popularity,
-              // poster_path:
-              //   "https://www.designer-daily.com/wp-content/uploads/2012/12/lord-war-creative-movie-posters.jpg",
-              // release_date: "2025-01-24",
+              poster_path: newMovieData.poster,
               title: newMovieData.title,
-              // video: false,
               vote_average: newMovieData.rating,
-              // vote_count: 1,
             }),
           },
         );
-
-        if (!response.ok) throw new Error("Failed to post movie");
-
-        //  const data = await response.json();
-        //  console.log("ok" ,data);
+        if (!response.ok) throw new Error("Failed to patch movie");
         alert("Movie updated successfully!");
       } catch (error) {
-        console.error("API PUT error", error);
-        alert("Something went wrong in PUT API");
+        console.error("API PATCH error", error);
+        alert("Something went wrong in PATCH API");
       }
     }
 
-    if (
-      formShow.action === true &&
-      formShow.editId === null &&
-      formShow.deleteId === null
-    ) {
-      postNewMovie();
-    } else if (
-      formShow.action === true &&
-      formShow.editId !== null &&
-      formShow.deleteId === null
-    ) {
-      editMovie(formShow.editId);
+    // ✅ Fixed: properly await API calls before refreshing
+    if (formShow.action === true && formShow.editId === null && formShow.deleteId === null) {
+      await postNewMovie();
+    } else if (formShow.action === true && formShow.editId !== null && formShow.deleteId === null) {
+      await editMovie(formShow.editId);
     }
-    // reset data
-    await setFormShow({ action: false, editId: null, deleteId: null });
+
+    setFormShow({ action: false, editId: null, deleteId: null }); // no pointless await
     refreshData();
-    // console.log("done");
   }
 
   return (
@@ -151,17 +124,15 @@ const FormDiv = ({ setFormShow, formShow, refreshData }) => {
         X
       </button>
       <form className="w-full space-y-3 h-full p-5" onSubmit={handleSubmit}>
-        {/*  head  */}
+        {/* head */}
         <div className="mb-5">
-          <h2
-            className="text-xl text-orange-600 text-center font-semibold"
-            id="dialog-title">
+          <h2 className="text-xl text-orange-600 text-center font-semibold" id="dialog-title">
             {formShow.editId === null ? "Add Movie" : "Edit Movie"}
           </h2>
         </div>
-        {/* title */}
+
         <InputDiv
-          label={"Movie name"}
+          label={"Movie Name"}
           inputId={"movieTitle"}
           movieValue={editMovie.original_title || ""}
         />
@@ -177,6 +148,15 @@ const FormDiv = ({ setFormShow, formShow, refreshData }) => {
           inputType="number"
           movieValue={editMovie.popularity}
         />
+
+        <InputDiv
+          label={"Poster Image URL"}
+          inputId={"moviePoster"}
+          inputType="url"
+          movieValue={editMovie.poster_path || ""}
+          required={false}
+        />
+
         <div className="flex flex-col space-y-1">
           <label htmlFor="movieOverview">Movie Overview</label>
           <textarea
@@ -189,6 +169,7 @@ const FormDiv = ({ setFormShow, formShow, refreshData }) => {
             required
           />
         </div>
+
         <button
           type="submit"
           className="w-full bg-orange-600 text-white px-3 py-1 text-center hover:bg-orange-700 active:bg-amber-800 rounded-lg mt-4">

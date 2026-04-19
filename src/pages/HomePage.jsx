@@ -32,7 +32,7 @@ const HomePage = () => {
             />
           </svg>
         </div>
-        <div className="flex flex-col space-y-3">
+        <div className="flex flex-col space-y-6">
           <div className="space-y-4">
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight dark:text-white text-slate-900">
               CyberDude <span className="text-react-brand">Networks</span>
